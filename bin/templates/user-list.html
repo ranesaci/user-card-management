@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>User List For Admin</title>
+<link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+
+<h1>User List For Admin Operations</h1>
+<body>
+
+	<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>User Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="user : ${userList}">
+				<td><label type="text" th:text="${user.userId}" /></td>
+				<td><label type="text" th:text="${user.firstName}" /></td>
+				<td><label type="text" th:text="${user.lastName}" /></td>
+				<td><input type="button" th:value="Update-Wallet"/></td>
+			</tr>
+    </tbody>                            
+</table>
+
+</body>
+
+</html>

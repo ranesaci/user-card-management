@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>User Details</title>
+<link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+
+<h1>User Details:</h1>
+<body>
+
+	UserId : <label type="text" th:text="${user.userId}" />
+	<br/>
+	First Name : <label type="text" th:text="${user.firstName}" />
+	<br/>
+	Last Name : <label type="text" th:text="${user.lastName}" />
+	<br/>
+	Role : <label type="text" th:text="${user.role}" />
+	<br/>
+	Enabled : <label type="text" th:text="${user.enabled}" />
+	<br/>
+	<br/>
+	
+	<h2>Wallet Details</h2>
+	<br/>
+	Wallet Enabled Status: <label type="text" th:text="${wallet.enabled}" /> 
+	<br/>
+	<input type="button" th:value="Update"/> 
+	<br/><br/>
+	
+	<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Card Number</th>
+            <th>Card Type</th>
+            <th>CVV</th>
+            <th>Enabled</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="card : ${wallet.cards}">
+				<td><a href="#"><label type="text" th:text="${card.cardId}" /></a></td>
+				<td><label type="text" th:text="${card.type}" /></td>
+				<td><label type="text" th:text="${card.cvv}" /></td>
+				<td><label type="text" th:text="${card.enabled}" /></td>
+				<td><label type="text" th:text="${card.address}" /></td>
+				<td><label type="text" th:text="${card.phone}" /></td>
+				<td> <input type="button" th:value="Edit"/> </td>
+			</tr>
+    </tbody>                            
+</table>
+	<br/>
+	<input type="button" th:value="AddCard"/>
+
+</body>
+
+</html>
